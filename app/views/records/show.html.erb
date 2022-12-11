@@ -1,3 +1,4 @@
+<div class="container">
 <h1><%= @record.title %></h1>
 <p ><%= image_tag @record.photo, size: "250" %></p>
 <p><%= @record.description %></p>
@@ -22,9 +23,10 @@
   </p>
   <p>
     Текст комментария<br>
-    <%= f.text_area(:body,{:class => 'form-control'}) %>
+    <%= f.number_field(:body,{:class => 'form-control'}) %>
   </p>
   <p>
     <%= f.submit("добавить", {:class => 'btn btn-success'}) %>
   </p>
 <% end %>
+</div>
