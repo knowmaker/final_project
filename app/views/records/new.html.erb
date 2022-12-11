@@ -1,0 +1,25 @@
+<h2>Добавление Записи</h2>
+<%= form_for :record, url: records_path, data: { turbo: false }  do |f| %>
+  <% if @record.errors.any? %>
+    <% @record.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+  <% end %>
+  <p>
+    Название<br>
+    <%= f.text_field(:title,{:class => 'form-control'}) %>
+  </p>
+  <p>
+    Фото<br>
+    <%= f.file_field(:photo,{:class => 'form-control'}) %>
+  </p>
+  <p>
+    Описание<br>
+    <%= f.text_area(:description,{:class => 'form-control'}) %>
+  </p>
+  <p>    Статус<br>
+    <%=f.select(:status, ['Создано','Продано'])%></p>
+  <p>
+    <%= f.submit({:class => 'btn btn-success'}) %>
+  </p>
+<% end %>
