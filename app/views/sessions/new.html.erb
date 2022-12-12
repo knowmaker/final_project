@@ -7,14 +7,14 @@
     <%= form_with url: sign_in_path do |f| %>
       <p>
         <%= f.label 'email:'%><br>
-        <%= f.text_field :email, id: 'email' %>
+        <%= f.text_field :email, id: 'email', class: 'form-control' %>
       </p>
       <p>
         <%= f.label 'password:'%><br>
-        <%= f.password_field :password, id: 'password' %>
+        <%= f.password_field :password, id: 'password', class: 'form-control' %>
       </p>
       <p>
-        <%= f.submit 'Log In' %>
+        <%= f.submit 'Log In', class: "btn btn-primary" %>
       </p>
     <% end %>
   </div>

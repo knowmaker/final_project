@@ -1,10 +1,27 @@
-<h1>Все записи</h1>
+<div class="container">
+<h1>Все объявления</h1>
 <% @record.each do |record| %>
-  <div class="alert alert-light">
-    <h3><%= record.title %></h3>
+  <%=content_tag(:div, '', :class => (record.status == 'Создано' ? 'alert alert-primary' : 'alert alert-warning')) do%>
+    <table>
+      <tr>
+        <th colspan="2"><h3><%= record.title %></h3></th>
+      </tr>
+      <tr>
+        <td rowspan="2"><%= image_tag record.photo, size: "260x180", crop: :fill %></td>
+        <td style="word-wrap: anywhere"><%= record.description %></td>
+      </tr>
+      <tr>
+        <td><h4><%= record.status %></h4></td>
+      </tr>
+      <tr>
+        <td><%= link_to "Читать далее", record_path(record), :class => 'btn btn-outline-primary'%></td>
+      </tr>
+    </table>
+<!--    <h3><%#= record.title %></h3>-->
 <!--    <p><%#= image_tag record.photo, size: "250" %></p>-->
-    <p><%= record.description %></p>
-    <p><%= record.status %></p>
-    <%= link_to "Читать далее", record_path(record), :class => 'btn btn-outline-primary'%>
-  </div>
+<!--    <p><%#= record.description %></p>-->
+<!--    <p><%#= record.status %></p>-->
+    <%#= link_to "Читать далее", record_path(record), :class => 'btn btn-outline-primary'%>
 <% end %>
+<% end %>
+</div>
