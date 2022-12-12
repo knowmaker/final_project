@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class RecordsController
 class RecordsController < ApplicationController
   before_action :require_user_logged_in!
   def edit
@@ -5,11 +8,11 @@ class RecordsController < ApplicationController
   end
 
   def index
-    @record=Record.all
+    @record = Record.all
   end
 
   def new
-    @record=Record.new
+    @record = Record.new
   end
 
   def show

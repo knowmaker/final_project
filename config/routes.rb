@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'pages#mainpage'
   get 'pages/about'
   get 'records/index', as: 'home'
-  #get 'about' => 'pages#about', as: 'about'
+  # get 'about' => 'pages#about', as: 'about'
   resources :records do
     resources :comments
   end
