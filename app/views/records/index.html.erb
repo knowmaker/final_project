@@ -1,7 +1,10 @@
 <div class="container">
+  <% if Current.user.email=='admin@admin.admin' %>
+    <%= button_to "Добавить новое объявление", new_record_path,method: :get, :class => 'btn btn-success' %>
+  <%end %>
 <h1>Все объявления</h1>
 <% @record.each do |record| %>
-  <%=content_tag(:div, '', :class => (record.status == 'Создано' ? 'alert alert-primary' : 'alert alert-warning')) do%>
+  <%=content_tag(:div, '', :class => (record.status == 'Аукцион объявлен' ? 'alert alert-primary' : 'alert alert-warning')) do%>
     <table>
       <tr>
         <th colspan="2"><h3><%= record.title %></h3></th>
@@ -14,14 +17,16 @@
         <td><h4><%= record.status %></h4></td>
       </tr>
       <tr>
-        <td><%= link_to "Читать далее", record_path(record), :class => 'btn btn-outline-primary'%></td>
+        <% if record.status == 'Аукцион объявлен' %>
+        <td colspan="2">Максимальна ставка на данный момент:<%= record.comments.maximum("cost") %>$</td>
+          <%else %>
+          <td colspan="2">Машина продана за:<%= record.comments.maximum("cost") %>$</td>
+          <% end %>
+      </tr>
+      <tr>
+        <td><%= link_to "Подробнее", record_path(record), :class => 'btn btn-outline-primary'%></td>
       </tr>
     </table>
-<!--    <h3><%#= record.title %></h3>-->
-<!--    <p><%#= image_tag record.photo, size: "250" %></p>-->
-<!--    <p><%#= record.description %></p>-->
-<!--    <p><%#= record.status %></p>-->
-    <%#= link_to "Читать далее", record_path(record), :class => 'btn btn-outline-primary'%>
 <% end %>
 <% end %>
 </div>

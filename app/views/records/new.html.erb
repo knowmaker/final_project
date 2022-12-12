@@ -1,4 +1,5 @@
-<h2>Добавление Записи</h2>
+<div class="container">
+<h2>Добавление объявления</h2>
 <%= form_for :record, url: records_path, data: { turbo: false }  do |f| %>
   <% if @record.errors.any? %>
     <% @record.errors.full_messages.each do |msg| %>
@@ -6,20 +7,22 @@
     <% end %>
   <% end %>
   <p>
-    Название<br>
+    <%= f.label 'Название' %>
     <%= f.text_field(:title,{:class => 'form-control'}) %>
   </p>
   <p>
-    Фото<br>
+    <%= f.label 'Фото' %>
     <%= f.file_field(:photo,{:class => 'form-control'}) %>
   </p>
   <p>
-    Описание<br>
+    <%= f.label 'Описание' %>
     <%= f.text_area(:description,{:class => 'form-control'}) %>
   </p>
-  <p>    Статус<br>
-    <%=f.select(:status, ['Создано','Продано'])%></p>
   <p>
-    <%= f.submit({:class => 'btn btn-success'}) %>
+    <%= f.label 'Статус:' %>
+    <%=f.select(:status, ['Аукцион объявлен','Аукцион закрыт'])%></p>
+  <p>
+    <%= f.submit('Создать',{:class => 'btn btn-success'}) %>
   </p>
 <% end %>
+</div>

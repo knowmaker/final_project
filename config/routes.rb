@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   root 'pages#mainpage'
-  get 'pages/about'
+  get 'pages/about', as: 'about'
   get 'records/index', as: 'home'
   # get 'about' => 'pages#about', as: 'about'
   resources :records do
