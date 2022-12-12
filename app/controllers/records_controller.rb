@@ -1,4 +1,5 @@
 class RecordsController < ApplicationController
+  before_action :require_user_logged_in!
   def edit
     @record = Record.find(params[:id])
   end

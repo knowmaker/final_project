@@ -25,25 +25,20 @@
         </ul>
 
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
+          <% if Current.user %>
+            Logged in as: <%= Current.user.email %><br>
+            <%#= link_to 'Edit Password', edit_password_path %>
+            <%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-outline-light me-2" %>
+          <% else %>
+            <%= button_to 'Sign Up', sign_up_path, method: :get, class: "btn btn-warning" %>
+            <%= button_to 'Login', sign_in_path, method: :get,  class: "btn btn-outline-light me-2" %>
+          <% end %>
+<!--          <button type="button" class="btn btn-outline-light me-2"><a href="<%#= sign_in_path %>">Login</a></button>-->
+<!--          <%#=button_to "Sign-up", sign_up_path, method: :get %><button type="button" class="btn btn-warning">Sign-up</button>-->
         </div>
       </div>
     </div>
   </header>
-<!--  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">-->
-<!--    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">-->
-<!--      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>-->
-<!--    </a>-->
-<!--    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">-->
-<!--      <li><span class="nav-link px-2 link-dark"><%#= link_to "Главная", home_path %></span></li>-->
-<!--      <li><span class="nav-link px-2 link-dark"><%#= link_to "О нас", about_path %></span></li>-->
-<!--    </ul>-->
-
-<!--    <div class="col-md-3 text-end">-->
-<!--      <span type="button" class="btn btn-outline-primary me-2"><%#= link_to "Добавить", new_record_path %></span>-->
-<!--    </div>-->
-<!--  </header>-->
 <!--  <div class="container">-->
     <%= yield %>
 <!--  </div>-->

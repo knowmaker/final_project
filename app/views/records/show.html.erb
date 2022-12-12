@@ -3,30 +3,32 @@
 <p ><%= image_tag @record.photo, size: "250" %></p>
 <p><%= @record.description %></p>
 <p><%= @record.status %></p>
+  <% if Current.user.email=='admin@admin.admin' %>
 <hr>
 <%= link_to "Редактировать", edit_record_path(@record), :class => 'btn btn-warning' %>
 <%= button_to "Удалить", record_path(@record), method: :delete, data: {confirm: "Удаляем?"}, :class => 'btn btn-danger' %>
+  <% else %>
 <hr>
 <h2>Все комментарии</h2>
 <% @record.comments.each do |comment| %>
   <div class="alert alert-light">
-    <p><strong><%= comment.username %></strong>: <%=comment.body %></p>
+    <p><strong><%= comment.username %></strong>: <%=comment.cost %></p>
   </div>
 <% end %>
-
 <hr>
 <h2>Добавление Комментария</h2>
 <%= form_for ([@record, @record.comments.build]) do |f| %>
   <p>
-    Пользователь<br>
-    <%= f.text_field(:username,{:class => 'form-control'}) %>
+    Участник<br>
+    <%= f.text_field(:username, class:'form-control', value:Current.user.email.to_s ) %>
   </p>
   <p>
-    Текст комментария<br>
-    <%= f.number_field(:body,{:class => 'form-control'}) %>
+    Стоимость<br>
+    <%= f.number_field(:cost,{:class => 'form-control'}) %>
   </p>
   <p>
-    <%= f.submit("добавить", {:class => 'btn btn-success'}) %>
+    <%= f.submit("Добавить", {:class => 'btn btn-success'}) %>
   </p>
 <% end %>
+    <%end %>
 </div>
