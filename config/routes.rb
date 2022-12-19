@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'balances/edit'
   root 'pages#mainpage'
   get 'pages/about', as: 'about'
   get 'records/index', as: 'home'
-  # get 'about' => 'pages#about', as: 'about'
+
   resources :records do
     resources :comments
   end
@@ -15,6 +16,13 @@ Rails.application.routes.draw do
   get 'sign_in', to: 'sessions#new'
   post 'sign_in', to: 'sessions#create', as: 'log_in'
   delete 'logout', to: 'sessions#destroy'
+
+  get 'balance', to: 'balances#edit', as: 'edit_balance'
+  patch 'balance', to: 'balances#update'
+  get 'password/reset', to: 'password_resets#new'
+  post 'password/reset', to: 'password_resets#create'
+  get 'password/reset/edit', to: 'password_resets#edit'
+  patch 'password/reset/edit', to: 'password_resets#update'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

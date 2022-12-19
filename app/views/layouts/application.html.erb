@@ -26,15 +26,22 @@
 
         <div class="text-end">
           <% if Current.user %>
-            Logged in as: <%= Current.user.email %>
-            <%#= link_to 'Edit Password', edit_password_path %>
-            <%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-outline-light me-2" %>
+            <table style="border-collapse: separate;border-spacing: 10px 0px;">
+              <tr>
+                <td style="text-align: center; vertical-align: middle;">Logged in as: <%= Current.user.email %></td>
+                <td style="text-align: center; vertical-align: middle;">Balance: <%= Current.user.balance %></td>
+                <td style="text-align: center; vertical-align: middle;"><%= link_to 'ЛК', edit_balance_path, class: "btn btn-outline-light me-2" %></td>
+                <td style="text-align: center; vertical-align: middle;"><%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-outline-light me-2" %></td>
+              </tr>
+            </table>
           <% else %>
-            <%= button_to 'Sign Up', sign_up_path, method: :get, class: "btn btn-warning" %>
-            <%= button_to 'Login', sign_in_path, method: :get,  class: "btn btn-outline-light me-2" %>
+            <table style="border-collapse: separate;border-spacing: 10px 0px;">
+              <tr>
+                <td style="text-align: center; vertical-align: middle;"><%= button_to 'Sign Up', sign_up_path, method: :get, class: "btn btn-warning" %></td>
+                <td style="text-align: center; vertical-align: middle;"><%= button_to 'Login', sign_in_path, method: :get,  class: "btn btn-outline-light me-2" %></td>
+              </tr>
+            </table>
           <% end %>
-<!--          <button type="button" class="btn btn-outline-light me-2"><a href="<%#= sign_in_path %>">Login</a></button>-->
-<!--          <%#=button_to "Sign-up", sign_up_path, method: :get %><button type="button" class="btn btn-warning">Sign-up</button>-->
         </div>
       </div>
     </div>

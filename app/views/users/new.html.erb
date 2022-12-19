@@ -10,20 +10,25 @@
           <div class="alert alert-danger"><%= msg %></div>
         <% end %>
       <% end %>
-
+      <p>
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
-
+      </p>
+      <p>
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
-
+      </p>
+      <p>
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
-
+      </p>
+      <p>
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
-
+      </p>
+      <p>
       <%= f.submit "Create my account", class: "btn btn-primary" %>
+      </p>
     <% end %>
   </div>
 </div>
