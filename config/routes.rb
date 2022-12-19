@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'password_resets/edit'
   get 'balances/edit'
   root 'pages#mainpage'
   get 'pages/about', as: 'about'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
 
   get 'lk', to: 'users#edit', as: 'edit_balance'
   patch 'lk', to: 'users#update'
+
   get 'password/reset', to: 'password_resets#new'
   post 'password/reset', to: 'password_resets#create'
   get 'password/reset/edit', to: 'password_resets#edit'

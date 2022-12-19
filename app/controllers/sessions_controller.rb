@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
     # finds existing user, checks to see if user can be authenticated
     if @user.present? && @user.authenticate(params[:password])
       # sets up user.id sessions
-      UserMailer.with(user: @user).welcome_email.deliver_later
       session[:user_id] = @user.id
       redirect_to root_path, notice: 'Logged in successfully'
     else

@@ -30,7 +30,7 @@
               <tr>
                 <td style="text-align: center; vertical-align: middle;">Logged in as: <%= Current.user.email %></td>
                 <td style="text-align: center; vertical-align: middle;">Balance: <%= Current.user.balance %></td>
-                <td style="text-align: center; vertical-align: middle;"><%= link_to 'ЛК', edit_balance_path, class: "btn btn-outline-light me-2" %></td>
+                <td style="text-align: center; vertical-align: middle;"><%= button_to 'ЛК', edit_balance_path, method: :get, class: "btn btn-outline-light me-2" %></td>
                 <td style="text-align: center; vertical-align: middle;"><%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-outline-light me-2" %></td>
               </tr>
             </table>
