@@ -10,15 +10,14 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :users
   get 'sign_up', to: 'users#new'
   post 'sign_up', to: 'users#create'
   get 'sign_in', to: 'sessions#new'
   post 'sign_in', to: 'sessions#create', as: 'log_in'
   delete 'logout', to: 'sessions#destroy'
 
-  get 'balance', to: 'balances#edit', as: 'edit_balance'
-  patch 'balance', to: 'balances#update'
+  get 'lk', to: 'users#edit', as: 'edit_balance'
+  patch 'lk', to: 'users#update'
   get 'password/reset', to: 'password_resets#new'
   post 'password/reset', to: 'password_resets#create'
   get 'password/reset/edit', to: 'password_resets#edit'

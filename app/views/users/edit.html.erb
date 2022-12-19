@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Edit Balance</h1>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_with model: Current.user, url: edit_balance_path do |f| %>
+        <p>
+          <%= f.label 'balance:'%><br>
+          <%= f.number_field :balance, class: 'form-control' %>
+        </p>
+        <p>
+          <%= f.submit 'Update', class: "btn btn-primary" %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

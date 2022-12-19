@@ -2,6 +2,7 @@
 
 # class UsersController
 class UsersController < ApplicationController
+  before_action :require_user_logged_in!, only: [:edit,:update]
   def new
     @user = User.new
   end
@@ -16,18 +17,21 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-
-  # def balances
-  #   #@user = User.find(params[:id])
-  #     if @user.update(user_params)
-  #       redirect_to @user
-  #     else
-  #       render 'balances'
-  #     end
-  #   end
+  def edit; end
+  def update
+    # update user password
+    if Current.user.update(balance_params)
+      redirect_to edit_balance_path, notice: 'Password Updated'
+    else
+      #render json: Current.user.errors
+      render 'edit'
+    end
+  end
 
   private
-
+  def balance_params
+    params.require(:user).permit(:balance)
+  end
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :balance)
   end
