@@ -1,6 +1,6 @@
 <div class="container">
   <h1><%= @record.title %></h1>
-  <p ><%= image_tag @record.photo, size: "260x180", crop: :fill %></p>
+  <p ><%= image_tag @record.photo, size: "280x180", crop: :fill %></p>
   <p><%= @record.description %></p>
   <p><%= @record.status %></p>
   <% if Current.user.email=='admin@admin.admin' %>
