@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class WelcomeMailer
 class WelcomeMailer < ApplicationMailer
   # sends a welcome email
   def welcome_email

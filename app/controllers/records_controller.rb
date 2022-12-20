@@ -32,6 +32,7 @@ class RecordsController < ApplicationController
   def update
     @record = Record.find(params[:id])
     if @record.update(record_params)
+      RecordsCloseJob.set(wait: 0.seconds).perform_later(@record) if record_params[:status] == 'Аукцион закрыт'
       redirect_to @record
     else
       render 'edit'

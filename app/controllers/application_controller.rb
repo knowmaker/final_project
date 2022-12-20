@@ -6,9 +6,7 @@ class ApplicationController < ActionController::Base
   def set_current_user
     # finds user with session data and stores it if present
     Current.user = User.find_by(id: session[:user_id]) if session[:user_id]
-    if Current.user
-      @is_admin = Current.user.email=='admin@admin.admin'
-    end
+    @is_admin = Current.user.email == 'admin@admin.admin' if Current.user
   end
 
   def require_user_logged_in!

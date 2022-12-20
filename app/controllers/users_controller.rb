@@ -21,11 +21,11 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if (balance_params[:balance]).to_i<0
+    if balance_params[:balance].to_i.negative?
       redirect_to edit_balance_path, notice: 'Not corrected'
       return
     end
-    Current.user.balance+=(balance_params[:balance]).to_i
+    Current.user.balance += balance_params[:balance].to_i
     if Current.user.save
       redirect_to edit_balance_path, notice: 'Balance Updated'
     else
