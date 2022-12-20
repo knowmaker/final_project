@@ -1,12 +1,16 @@
 <div class="container">
-  <= link_to 'Edit Password', edit_password_path %>
   <h1>Edit Balance</h1>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <%= form_with model: Current.user, url: edit_balance_path do |f| %>
+      <%= form_with model: Current.user, url: edit_balance_path, data: { turbo: false } do |f| %>
+        <% if Current.user.errors.any? %>
+          <% Current.user.errors.full_messages.each do |msg| %>
+            <div class="alert alert-danger"><%= msg %></div>
+          <% end %>
+        <% end %>
         <p>
           <%= f.label 'balance:'%><br>
-          <%= f.number_field :balance, class: 'form-control' %>
+          <%= f.number_field :balance, value:0, class: 'form-control' %>
         </p>
         <p>
           <%= f.submit 'Update', class: "btn btn-primary" %>

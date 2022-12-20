@@ -22,7 +22,7 @@ class RecordsController < ApplicationController
   def create
     @record = Record.new(record_params)
     if @record.save
-      RecordsCloseJob.set(wait: 30.seconds).perform_later(@record)
+      RecordsCloseJob.set(wait: 300000.seconds).perform_later(@record)
       redirect_to @record
     else
       render 'new'
