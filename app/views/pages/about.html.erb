@@ -1,4 +1,11 @@
 <div class="container">
-<h1>Pages#about</h1>
-<p>Find me in app/views/pages/about.html.erb</p>
+<h1>Мы - крупнейшая компания по аукциону автомобилей</h1>
+<p>Мы работаем в разных странах мира, выберите язык, который вы предпочитаете</p>
+      <% I18n.available_locales.each do |locale| %>
+        <li>
+            <%= link_to locale, about_path(locale: locale) %>
+        </li>
+      <% end %>
+<!--    </ul>-->
+<!--  </li>-->
 </div>
