@@ -1,8 +1,8 @@
 <div class="container">
   <% if @is_admin %>
-    <%= button_to "Добавить новое объявление", new_record_path,method: :get, :class => 'btn btn-success' %>
+    <%= button_to (t '.new'), new_record_path,method: :get, :class => 'btn btn-success' %>
   <%end %>
-<h1>Всего объявлений: <span  id="cntrec"><%=Record.count %></span></h1>
+<h1><%= t '.cnt' %><span  id="cntrec"><%=Record.count %></span></h1>
 <% @record.each do |record| %>
   <%=content_tag(:div, '', :class => (record.status == 'Аукцион объявлен' ? 'alert alert-primary' : 'alert alert-warning')) do%>
     <table>
@@ -18,14 +18,14 @@
       </tr>
       <tr>
         <% if record.status == 'Аукцион объявлен' %>
-          <td>До окончания: <span id=<%= record.id %> time="<%= record.timeend-Time.now %>">0</span></td>
-          <td>Максимальна ставка на данный момент:<%= record.comments.maximum("cost") %>$</td>
+          <td><%= t '.to_end' %><span id=<%= record.id %> time="<%= record.timeend-Time.now %>">0</span></td>
+          <td><%= t '.max_cost' %><%= record.comments.maximum("cost") %>$</td>
           <%else %>
-          <td colspan="2">Машина продана за:<%= record.comments.maximum("cost") %>$</td>
+          <td colspan="2"><%= t '.car_sell' %><%= record.comments.maximum("cost") %>$</td>
           <% end %>
       </tr>
       <tr>
-        <td><%= link_to "Подробнее", record_path(record), :class => 'btn btn-outline-primary'%></td>
+        <td><%= link_to (t '.more'), record_path(record), :class => 'btn btn-outline-primary'%></td>
       </tr>
     </table>
 <% end %>

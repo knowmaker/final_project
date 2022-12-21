@@ -1,5 +1,5 @@
 <div class="container">
-<h2>Добавление объявления</h2>
+<h2><%= t '.add_rec' %></h2>
 <%= form_for :record, url: records_path, data: { turbo: false }  do |f| %>
   <% if @record.errors.any? %>
     <% @record.errors.full_messages.each do |msg| %>
@@ -7,22 +7,22 @@
     <% end %>
   <% end %>
   <p>
-    <%= f.label 'Название' %>
-    <%= f.text_field(:title,{:class => 'form-control'}) %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </p>
   <p>
-    <%= f.label 'Фото' %>
-    <%= f.file_field(:photo,{:class => 'form-control'}) %>
+    <%= f.label :photo %>
+    <%= f.file_field :photo, class: 'form-control' %>
   </p>
   <p>
-    <%= f.label 'Описание' %>
-    <%= f.text_area(:description,{:class => 'form-control'}) %>
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
   </p>
   <p>
-    <%= f.label 'Статус:' %>
-    <%=f.select(:status, ['Аукцион объявлен','Аукцион закрыт'])%></p>
+    <%= f.label :status %>
+    <%=f.select :status, ['Аукцион объявлен','Аукцион закрыт']%></p>
   <p>
-    <%= f.submit('Создать',{:class => 'btn btn-success'}) %>
+    <%= f.submit (t '.create'), class: 'btn btn-success' %>
   </p>
 <% end %>
 </div>

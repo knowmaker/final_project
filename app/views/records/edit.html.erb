@@ -1,5 +1,5 @@
 <div class="container">
-<h2>Редактирование Записи</h2>
+<h2><%= t '.edit_rec' %></h2>
 <%= form_for @record, data: { turbo: false }  do |f| %>
   <% if @record.errors.any? %>
     <% @record.errors.full_messages.each do |msg| %>
@@ -7,19 +7,19 @@
     <% end %>
   <% end %>
   <p>
-    <%= f.label 'Название' %>
-    <%= f.text_field(:title,{:class => 'form-control'}) %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </p>
   <p>
-    <%= f.label 'Описание' %>
-    <%= f.text_area(:description,{:class => 'form-control'}) %>
+    <%= f.label :description %>
+    <%= f.text_area :description, class:'form-control' %>
   </p>
   <p>
-    <%= f.label 'Статус:' %>
-    <%=f.select(:status, ['Аукцион объявлен','Аукцион закрыт'])%></p>
+    <%= f.label :status %>
+    <%=f.select :status, ['Аукцион объявлен','Аукцион закрыт']%></p>
   <p>
   <p>
-    <%= f.submit('Внести изменения', {:class => 'btn btn-success'}) %>
+    <%= f.submit (t '.edit'), class: 'btn btn-success' %>
   </p>
 <% end %>
 </div>

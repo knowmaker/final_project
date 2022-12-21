@@ -20,25 +20,25 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="<%= home_path %>" class="nav-link px-2 text-secondary">Главная</a></li>
-          <li><a href="<%= about_path %>" class="nav-link px-2 text-white">О нас</a></li>
+          <li><a href="<%= home_path %>" class="nav-link px-2 text-secondary"><%= t 'global.main' %></a></li>
+          <li><a href="<%= about_path %>" class="nav-link px-2 text-white"><%= t 'global.about' %></a></li>
         </ul>
 
         <div class="text-end">
           <% if Current.user %>
             <table style="border-collapse: separate;border-spacing: 10px 0px;">
               <tr>
-                <td style="text-align: center; vertical-align: middle;">Logged in as: <%= Current.user.email %></td>
-                <td style="text-align: center; vertical-align: middle;">Balance: <%= Current.user.balance %></td>
-                <td style="text-align: center; vertical-align: middle;"><%= button_to 'ЛК', edit_balance_path, method: :get, class: "btn btn-outline-light me-2" %></td>
-                <td style="text-align: center; vertical-align: middle;"><%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-outline-light me-2" %></td>
+                <td style="text-align: center; vertical-align: middle;"><%= t 'global.log_as'%><%=Current.user.email %></td>
+                <td style="text-align: center; vertical-align: middle;"><%= t 'global.balance'%><%= Current.user.balance %></td>
+                <td style="text-align: center; vertical-align: middle;"><%= button_to (t 'global.account'), edit_balance_path, method: :get, class: "btn btn-outline-light me-2" %></td>
+                <td style="text-align: center; vertical-align: middle;"><%= button_to (t 'global.logout'), logout_path, method: :delete, class: "btn btn-outline-light me-2" %></td>
               </tr>
             </table>
           <% else %>
             <table style="border-collapse: separate;border-spacing: 10px 0px;">
               <tr>
-                <td style="text-align: center; vertical-align: middle;"><%= button_to 'Sign Up', sign_up_path, method: :get, class: "btn btn-warning" %></td>
-                <td style="text-align: center; vertical-align: middle;"><%= button_to 'Login', sign_in_path, method: :get,  class: "btn btn-outline-light me-2" %></td>
+                <td style="text-align: center; vertical-align: middle;"><%= button_to (t 'global.sign_up'), sign_up_path, method: :get, class: "btn btn-warning" %></td>
+                <td style="text-align: center; vertical-align: middle;"><%= button_to (t 'global.login'), sign_in_path, method: :get,  class: "btn btn-outline-light me-2" %></td>
               </tr>
             </table>
           <% end %>

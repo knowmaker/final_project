@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  #scope "(:locale)", locale: /#{I18n.available_locales_join("|")}/ do
   get 'password_resets/edit'
   get 'balances/edit'
   root 'pages#mainpage'
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
   post 'password/reset', to: 'password_resets#create'
   get 'password/reset/edit', to: 'password_resets#edit'
   patch 'password/reset/edit', to: 'password_resets#update'
+  #end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

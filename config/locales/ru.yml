@@ -1,0 +1,69 @@
+ru:
+  activerecord:
+    attributes:
+      user:
+        name: 'Имя пользователя'
+        email: 'Почта'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        balance: 'Баланс'
+      record:
+        comments: 'Комментарии'
+        title: 'Название'
+        photo: 'Фотография'
+        description: 'Описание'
+        status: 'Статус'
+  global:
+    main: 'Главная'
+    about: 'Контакты'
+    sign_up: 'Регистрация'
+    login: 'Войти'
+    logout: 'Выйти'
+    log_as: 'Вошли как: '
+    balance: 'Баланс: '
+    account: 'Личный кабинет'
+  pages:
+    mainpage:
+      find: 'Найти'
+  sessions:
+    new:
+      sign_in: 'Вход'
+      login: 'Войти'
+      email: 'Почта'
+      password: 'Пароль'
+      fp: 'Забыли пароль?'
+  users:
+    new:
+      sign_up: 'Регистрация'
+      create_acc: 'Зарегистрироваться'
+    edit:
+      add_money: 'Внести на счёт'
+      update: 'Пополнить'
+  records:
+    show:
+      edit: 'Редактировать'
+      delete: 'Удалить'
+    new:
+      add_rec: 'Создание объявления'
+      create: 'Создать'
+    edit:
+      edit_rec: 'Редактирование объявления'
+      edit: 'Редактировать'
+    index:
+      new: 'Добавить новое объявление'
+      cnt: 'Всего объявлений: '
+      to_end: 'До оконачания: '
+      max_cost: 'Максимальная ставка на текущий момент: '
+      car_sell: 'Машина продана за: '
+      more: 'Подробнее'
+  password_resets:
+    edit:
+      reset_p: 'Обновление пароля'
+      reset: 'Обновить'
+    new:
+      to_null: 'Сбросить'
+
+
+
+
+

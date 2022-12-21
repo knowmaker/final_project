@@ -30,4 +30,66 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        name: 'Username'
+        email: 'Mail'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+        balance: 'Balance'
+      record:
+        comments: 'Comments'
+        title: 'Name'
+        photo: 'Photo'
+        description: 'Description'
+        status: 'Status'
+  global:
+    main: 'Home'
+    about: 'Contacts'
+    sign_up: 'Registration'
+    login: 'Log in'
+    logout: 'Log out'
+    log_as: 'Logged in as: '
+    balance: 'Balance: '
+    account: 'Personal Area'
+  pages:
+    mainpage:
+      find: 'Find'
+  sessions:
+    new:
+      sign_in: 'Entrance'
+      login: 'Log in'
+      email: 'Mail'
+      password: 'Password'
+      fp: 'Forgot your password?'
+  users:
+    new:
+      sign_up: 'Registration'
+      create_acc: 'Register'
+    edit:
+      add_money: 'Deposit'
+      update: 'Top up balance'
+  records:
+    show:
+      edit: 'Edit'
+      delete: 'Delete'
+    new:
+      add_rec: 'Create ad'
+      create: 'Create'
+    edit:
+      edit_rec: 'Edit ad'
+      edit: 'Edit'
+    index:
+      new: 'Add new announcement'
+      cnt: 'Total Ads: '
+      to_end: 'Until end: '
+      max_cost: 'Maximum bid so far: '
+      car_sell: 'Car sold for: '
+      more: 'More'
+  password_resets:
+    edit:
+      reset_p: 'Password update'
+      reset: 'Update'
+    new:
+      to_null: 'Reset'
