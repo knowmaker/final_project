@@ -12,5 +12,6 @@ class RecordsCloseJob < ApplicationJob
       @usr.balance += item.cost
       @usr.save
     end
+    #rec.update_column(:timeend,Time.now)
   end
 end

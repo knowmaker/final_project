@@ -21,8 +21,11 @@ class RecordsController < ApplicationController
 
   def create
     @record = Record.new(record_params)
+    #@record.update_column(:dateend, Date.today+1)
     if @record.save
-      RecordsCloseJob.set(wait: 1.weeks).perform_later(@record)
+      @record.update_column(:timeend, Time.now.next_day)
+      @record.save
+      RecordsCloseJob.set(wait: 1.days).perform_later(@record)
       redirect_to @record
     else
       render 'new'

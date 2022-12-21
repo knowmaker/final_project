@@ -1,8 +1,8 @@
 <div class="container">
-  <% if Current.user.email=='admin@admin.admin' %>
+  <% if @is_admin %>
     <%= button_to "Добавить новое объявление", new_record_path,method: :get, :class => 'btn btn-success' %>
   <%end %>
-<h1>Все объявления</h1>
+<h1>Всего объявлений: <span  id="cntrec"><%=Record.count %></span></h1>
 <% @record.each do |record| %>
   <%=content_tag(:div, '', :class => (record.status == 'Аукцион объявлен' ? 'alert alert-primary' : 'alert alert-warning')) do%>
     <table>
@@ -18,7 +18,8 @@
       </tr>
       <tr>
         <% if record.status == 'Аукцион объявлен' %>
-        <td colspan="2">Максимальна ставка на данный момент:<%= record.comments.maximum("cost") %>$</td>
+          <td>До окончания: <span id=<%= record.id %> time="<%= record.timeend-Time.now %>">0</span></td>
+          <td>Максимальна ставка на данный момент:<%= record.comments.maximum("cost") %>$</td>
           <%else %>
           <td colspan="2">Машина продана за:<%= record.comments.maximum("cost") %>$</td>
           <% end %>
