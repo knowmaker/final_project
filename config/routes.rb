@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
   get 'password_resets/edit'
   get 'balances/edit'
-  root 'pages#mainpage', as: 'main'
+  root 'pages#mainpage'
   get 'pages/about', as: 'about'
   get 'records/index', as: 'home'
 
