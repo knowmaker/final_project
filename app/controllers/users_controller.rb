@@ -21,10 +21,8 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if balance_params[:balance].to_i.negative?
-      redirect_to edit_balance_path, notice: (t '.not_corr')
-      return
-    end
+    return unless balance_params[:balance].to_i.positive?
+
     Current.user.balance += balance_params[:balance].to_i
     if Current.user.save
       redirect_to edit_balance_path, notice: (t '.bal_upd')
