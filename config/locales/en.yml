@@ -30,6 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  en: 'English'
+  ru: 'Russian'
   activerecord:
     attributes:
       user:
@@ -56,6 +58,13 @@ en:
   pages:
     mainpage:
       find: 'Find'
+      auction: 'Car auction'
+      auto_text: 'Auto, car - a motor vehicle for transporting people and goods. Road transport ranks first in the world in terms of traffic volumes. In a modern car, there are 150-300 important parts, the total number of components reaches three hundred. Any car moves on the ground on four wheels. The weight of a passenger car does not exceed 3,500 kg, cars are produced with closed bodies (sedans, limousines, coupes, hatchbacks, station wagons, vans, minibuses) and with bodies whose top can be removed (convertibles, roadsters, landau, chaises). Models with high speed qualities are called sports. Cars for sports competitions - racing. The world`s largest car manufacturers: General Motors (USA, UK, Australia, Germany), Volkswagen Group (Germany, France, Italy, Spain, UK), Toyota (Japan, Hyundai Motor (South Korea), Ford (USA), Renault-Nissan (Japan, France, South Korea, Romania, Russia).'
+      auto_text2: 'A car is perhaps the only inanimate object that many people treat as living. So alive that it`s talked about and discussed as more than just a piece of iron.'
+      valt_text: 'You can`t treat a car like a person - a car needs love` - Walter Röhrl, German racing driver.'
+    about:
+      about: 'We are the largest car auction company'
+      lang: 'We work in different countries of the world, choose the language you prefer!'
   sessions:
     new:
       sign_in: 'Entrance'
