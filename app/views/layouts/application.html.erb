@@ -23,23 +23,8 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="<%= home_path %>" class="nav-link px-2 text-secondary"><%= t 'global.main' %></a></li>
           <li><a href="<%= about_path %>" class="nav-link px-2 text-white"><%= t 'global.about' %></a></li>
-<!--          <li class="dropdown">-->
-            <%#= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white', data: {"bs-toggle": 'dropdown'} do %>
-              <%#= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>
-              <%#= I18n.locale %>
-            <%# end %>
-<!--            <ul class="dropdown-menu">-->
-              <%# I18n.available_locales.each do |locale| %>
-<!--                <li>-->
-                  <%# if I18n.locale == locale %>
-                    <%# tag.span locale, class: 'dropdown-item' %>
-                  <%# else%>
-                    <%#= link_to locale, home_path(locale: locale), class: 'dropdown-item' %>
-                  <%# end %>
-<!--                </li>-->
-              <%# end %>
-<!--            </ul>-->
-<!--          </li>-->
+          <p class="hidethis notice" style="background-color: #f8e896;"><%= notice %></p>
+          <p class="hidethis alert"  style="background-color: #da1e5a;"><%= alert %></p>
         </ul>
 
         <div class="text-end">

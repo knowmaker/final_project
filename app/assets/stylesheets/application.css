@@ -16,3 +16,69 @@
 .qqqqq {
     background: url('https://phonoteka.org/uploads/posts/2021-04/1619098890_28-phonoteka_org-p-zadnii-fon-dlya-mashini-28.jpg') no-repeat center center;
     background-size: cover;}
+
+.hidethis { animation: css 0s 5s forwards;
+    padding: 10px;
+    margin-bottom: 10px;
+    font: 400 16px 'Open Sans', sans-serif;
+    border-radius: 10px;
+    color: black;
+}
+
+@keyframes css  { to { visibility: hidden; } }
+ /*visibility / overflow: hidden;*/
+
+
+/*.hidethis {*/
+/*    -moz-animation: cssAnimation 0s ease-in 5s forwards;*/
+/*    !* Firefox *!*/
+/*    -webkit-animation: cssAnimation 0s ease-in 5s forwards;*/
+/*    !* Safari and Chrome *!*/
+/*    -o-animation: cssAnimation 0s ease-in 5s forwards;*/
+/*    !* Opera *!*/
+/*    animation: cssAnimation 0s ease-in 5s forwards;*/
+/*    -webkit-animation-fill-mode: forwards;*/
+/*    animation-fill-mode: forwards;*/
+/*}*/
+/*@keyframes cssAnimation {*/
+/*    to {*/
+/*        width:0;*/
+/*        height:0;*/
+/*        overflow:hidden;*/
+/*    }*/
+/*}*/
+/*@-webkit-keyframes cssAnimation {*/
+/*    to {*/
+/*        width:0;*/
+/*        height:0;*/
+/*        visibility:hidden;*/
+/*    }*/
+/*}*/
+
+/*.hidethis {*/
+/*    -webkit-animation: seconds 1.0s forwards;*/
+/*    -webkit-animation-iteration-count: 1;*/
+/*    -webkit-animation-delay: 5s;*/
+/*    animation: seconds 1.0s forwards;*/
+/*    animation-iteration-count: 1;*/
+/*    animation-delay: 5s;*/
+/*    position: relative;*/
+/*}*/
+/*@-webkit-keyframes seconds {*/
+/*    0% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*    100% {*/
+/*        opacity: 0;*/
+/*        left: -9999px;*/
+/*    }*/
+/*}*/
+/*@keyframes seconds {*/
+/*    0% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*    100% {*/
+/*        opacity: 0;*/
+/*        left: -9999px;*/
+/*    }*/
+/*}*/
