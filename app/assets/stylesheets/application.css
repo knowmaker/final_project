@@ -17,14 +17,23 @@
     background: url('https://phonoteka.org/uploads/posts/2021-04/1619098890_28-phonoteka_org-p-zadnii-fon-dlya-mashini-28.jpg') no-repeat center center;
     background-size: cover;}
 
-.hidethis { animation: css 0s 5s forwards;
+.hidethis { animation: css 0s 50s forwards;}
+.myalert {
     padding: 10px;
-    /*margin-bottom: 10px;*/
+    margin-bottom: 1px;
+    font: 400 16px 'Open Sans', sans-serif;
+    border-radius: 10px;
+    color: white;
+    background-color: #da1e5a;
+}
+.mynotice {
+    padding: 10px;
+    margin-bottom: 1px;
     font: 400 16px 'Open Sans', sans-serif;
     border-radius: 10px;
     color: black;
+    background-color: #f8e896;
 }
-
 @keyframes css  { to { visibility: hidden; } }
  /*visibility / overflow: hidden;*/
 

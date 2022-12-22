@@ -23,10 +23,12 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="<%= home_path %>" class="nav-link px-2 text-secondary"><%= t 'global.main' %></a></li>
           <li><a href="<%= about_path %>" class="nav-link px-2 text-white"><%= t 'global.about' %></a></li>
-          <p class="hidethis notice" style="background-color: #f8e896;"><%= notice %></p>
-          <p class="hidethis alert"  style="background-color: #da1e5a;"><%= alert %></p>
+          <li>
+            <% flash.each do |type, msg| %>
+            <div class="hidethis"><p class="<%= 'my'+type.to_s %>"><%=msg %></p></div>
+            <% end %>
+          </li>
         </ul>
-
         <div class="text-end">
           <% if Current.user %>
             <table style="border-collapse: separate;border-spacing: 10px 0px;">
