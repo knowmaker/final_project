@@ -17,7 +17,7 @@
     background: url('https://phonoteka.org/uploads/posts/2021-04/1619098890_28-phonoteka_org-p-zadnii-fon-dlya-mashini-28.jpg') no-repeat center center;
     background-size: cover;}
 
-.hidethis { animation: css 0s 50s forwards;}
+.hidethis { animation: css 0s 10s forwards;}
 .myalert {
     padding: 10px;
     margin-bottom: 1px;
