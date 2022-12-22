@@ -55,6 +55,7 @@ en:
     log_as: 'Logged in as: '
     balance: 'Balance: '
     account: 'Personal Area'
+    del_sure: 'Are you sure?'
   application:
     sign_in_alert: 'You must be signed in'
   pages:

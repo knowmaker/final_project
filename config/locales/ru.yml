@@ -24,6 +24,7 @@ ru:
     log_as: 'Вошли как: '
     balance: 'Баланс: '
     account: 'Личный кабинет'
+    del_sure: 'Вы уверены?'
   application:
     sign_in_alert: 'Авторизуйтесь для продолжения'
   pages:
