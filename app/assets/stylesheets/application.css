@@ -19,7 +19,7 @@
 
 .hidethis { animation: css 0s 5s forwards;
     padding: 10px;
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
     font: 400 16px 'Open Sans', sans-serif;
     border-radius: 10px;
     color: black;

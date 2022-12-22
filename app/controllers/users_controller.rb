@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       WelcomeMailer.with(user: @user).welcome_email.deliver_now
       session[:user_id] = @user.id
-      redirect_to root_path, notice: 'Successfully created account'
+      redirect_to root_path, notice: (t '.cr_acc')
     else
       render 'new'
     end
@@ -22,12 +22,12 @@ class UsersController < ApplicationController
 
   def update
     if balance_params[:balance].to_i.negative?
-      redirect_to edit_balance_path, notice: 'Not corrected'
+      redirect_to edit_balance_path, notice: (t '.not_corr')
       return
     end
     Current.user.balance += balance_params[:balance].to_i
     if Current.user.save
-      redirect_to edit_balance_path, notice: 'Balance Updated'
+      redirect_to edit_balance_path, notice: (t '.bal_upd')
     else
       render 'edit'
     end

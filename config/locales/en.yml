@@ -55,6 +55,8 @@ en:
     log_as: 'Logged in as: '
     balance: 'Balance: '
     account: 'Personal Area'
+  application:
+    sign_in_alert: 'You must be signed in'
   pages:
     mainpage:
       find: 'Find'
@@ -72,6 +74,11 @@ en:
       email: 'Mail'
       password: 'Password'
       fp: 'Forgot your password?'
+    create:
+      log_suc: 'Logged in successfully'
+      log_err: 'Invalid email or password'
+    destroy:
+      log_out: 'Logged Out'
   users:
     new:
       sign_up: 'Registration'
@@ -79,6 +86,11 @@ en:
     edit:
       add_money: 'Deposit'
       update: 'Top up balance'
+    create:
+      cr_acc: 'Successfully created account'
+    update:
+      not_corr: 'Not corrected'
+      bal_upd: 'Balance updated'
   records:
     show:
       edit: 'Edit'
@@ -100,5 +112,10 @@ en:
     edit:
       reset_p: 'Password update'
       reset: 'Update'
+      token_exp: 'Your token has expired. Please try again.'
+    update:
+      res_pasw: 'Your password was reset successfully. Please sign in'
+    create:
+      check_email: 'Please check your email to reset the password'
     new:
       to_null: 'Reset'
