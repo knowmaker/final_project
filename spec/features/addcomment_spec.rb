@@ -33,8 +33,8 @@ describe 'Addcomment' do
     @driver.find_element(:id, 'comment_cost').send_keys('3000')
     @driver.find_element(:name, 'commit').click
     # Проверяем, что ставка сделана и больше поставить уже нельяз
-    body_text = @driver.find_element(:css, '.container:nth-child(2)').text
+    body_text = @driver.find_element(:css, '.container:nth-child(3)').text
     expect(body_text.include? @email).to be true
-    expect(body_text.include? 'Ваша ставка сделана!').to be true
+    expect(body_text.include? 'Bet Completed').to be true
   end
 end
