@@ -4,7 +4,7 @@
 class CommentsController < ApplicationController
   def create
     @record = Record.find(params[:record_id])
-    @comment = @record.comments.create(username: Current.user.email, cost: comment_params[:cost])
+    @comment = @record.comments.create!(username: Current.user.email, cost: comment_params[:cost])
     balance_minus
     redirect_to record_path(@record)
   end
@@ -16,7 +16,9 @@ class CommentsController < ApplicationController
   end
 
   def balance_minus
-    Current.user.balance -= comment_params[:cost].to_i
-    Current.user.save
+    if comment_params[:cost].to_i.positive?
+      Current.user.balance -= comment_params[:cost].to_i
+      Current.user.save
+    end
   end
 end
