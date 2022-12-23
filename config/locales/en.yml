@@ -58,6 +58,7 @@ en:
     balance: 'Balance: '
     account: 'Personal Area'
     del_sure: 'Are you sure?'
+    sub_welc: 'Welcome'
   application:
     sign_in_alert: 'You must be signed in'
   pages:
@@ -127,3 +128,10 @@ en:
       check_email: 'Please check your email to reset the password'
     new:
       to_null: 'Reset'
+  welcome_mailer:
+    welcome_email:
+      welcome: 'Welcome to the auction platform, '
+      suc_su: 'You have successfully registered.'
+      y_mail: 'Your mail: '
+      url_p: 'To enter the site, follow the link '
+      happy: 'Glad you`re with us, have a nice day'
