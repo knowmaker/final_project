@@ -13,7 +13,7 @@
     </table>
   <% else %>
     <hr>
-    <h2>Все ставки</h2>
+    <h2><%= t '.all_bet' %></h2>
     <% @record.comments.each do |comment| %>
       <div class="alert alert-light">
         <p><strong><%= comment.username %></strong>: <%=comment.cost %></p>
@@ -21,22 +21,22 @@
     <% end %>
     <% if @record.comments.where(username: Current.user.email).count < 1 && @record.status == 'Аукцион объявлен'%>
       <hr>
-      <h2>Добавление Комментария</h2>
+      <h2><%= t '.add_bet' %></h2>
       <%= form_for ([@record, @record.comments.build]) do |f| %>
         <p>
-          Стоимость<br>
-          <%= f.number_field(:cost,{:class => 'form-control'}) %>
+          <%= f.label :cost %>
+          <%= f.number_field :cost, class: 'form-control', min: 0 %>
         </p>
         <p>
-          <%= f.submit("Добавить", {:class => 'btn btn-success'}) %>
+          <%= f.submit (t '.add'), class: 'btn btn-success' %>
         </p>
       <% end %>
     <% else if @record.comments.where(username: Current.user.email).count == 1 && @record.status == 'Аукцион объявлен'%>
       <hr>
-      <h2>Ваша ставка сделана!</h2>
+      <h2><%= t '.bet_com' %></h2>
       <% else %>
         <hr>
-        <h2>Сделка состоялась: машина продана за <%= @record.comments.maximum("cost") %>$</h2>
+        <h2><%= t '.pay_car' %><%= @record.comments.maximum("cost") %>$</h2>
       <% end %>
     <%end %>
   <%end %>

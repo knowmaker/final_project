@@ -46,6 +46,8 @@ en:
         photo: 'Photo'
         description: 'Description'
         status: 'Status'
+      comment:
+        cost: 'Bet'
   global:
     main: 'Home'
     about: 'Contacts'
@@ -96,6 +98,11 @@ en:
     show:
       edit: 'Edit'
       delete: 'Delete'
+      all_bet: 'All bets'
+      add_bet: 'Place a bet'
+      add: 'Put'
+      bet_com: 'Bet Completed'
+      pay_car: 'The deal went through: the car was sold for '
     new:
       add_rec: 'Create ad'
       create: 'Create'
