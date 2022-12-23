@@ -10,7 +10,7 @@
         <% end %>
         <p>
           <%= f.label :balance%><br>
-          <%= f.number_field :balance, value:0, class: 'form-control', min:0 %>
+          <%= f.number_field :balance, value:0, class: 'form-control', min: 0, max: 100000 %>
         </p>
         <p>
           <%= f.submit (t '.update'), class: "btn btn-primary" %>
