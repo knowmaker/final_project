@@ -43,6 +43,11 @@ class RecordsController < ApplicationController
 
   def destroy
     @record = Record.find(params[:id])
+    @record.comments.each do |item|
+      usr = User.find_by(email: item.username)
+      usr.balance += item.cost
+      usr.save
+    end
     @record.destroy
     redirect_to records_path
   end
