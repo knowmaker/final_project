@@ -16,9 +16,9 @@ class CommentsController < ApplicationController
   end
 
   def balance_minus
-    if comment_params[:cost].to_i.positive?
-      Current.user.balance -= comment_params[:cost].to_i
-      Current.user.save
-    end
+    return unless comment_params[:cost].to_i.positive?
+
+    Current.user.balance -= comment_params[:cost].to_i
+    Current.user.save
   end
 end
