@@ -1,4 +1,14 @@
-Hi <%= params[:user].email %>,<br>
-Someone requested a password reset.
-Click the link above if you recognise the activity, link expires in 15 minutes
-<%= link_to 'Reset Password', password_reset_edit_url(token: @token) %>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<p>
+  <%= t '.hi' %><%= params[:user].name %>,<br>
+  <%= t '.sm_req' %>
+  <%= t '.cl_link' %>
+  <%= link_to (t '.res_p'), password_reset_edit_url(token: @token) %>
+</p>
+</body>
+</html>

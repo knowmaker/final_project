@@ -37,7 +37,9 @@
 @keyframes css  { to { visibility: hidden; } }
  /*visibility / overflow: hidden;*/
 
-
+html, body, canvas{
+width: 100%;
+height: 100%;}
 /*.hidethis {*/
 /*    -moz-animation: cssAnimation 0s ease-in 5s forwards;*/
 /*    !* Firefox *!*/

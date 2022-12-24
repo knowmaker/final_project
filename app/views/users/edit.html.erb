@@ -18,4 +18,33 @@
       <% end %>
     </div>
   </div>
+  <% Record.all.each do |record| %>
+    <% if !record.comments.find_by(username: Current.user.email).nil?%>
+    <%=content_tag(:div, '', :class => (record.status == 'Аукцион объявлен' ? 'alert alert-primary' : 'alert alert-warning')) do%>
+      <table>
+        <tr>
+          <th colspan="2"><h3><%= record.title %></h3></th>
+        </tr>
+        <tr>
+          <td rowspan="2"><%= image_tag record.photo, size: "280x180", crop: :fill %></td>
+          <td style="word-wrap: anywhere"><%= record.description %></td>
+        </tr>
+        <tr>
+          <td><h4><%= record.status %></h4></td>
+        </tr>
+        <tr>
+          <% if record.status == 'Аукцион объявлен' %>
+            <td><%= t 'records.index.to_end' %><span class="time" id=<%= record.id %> time="<%= record.timeend-Time.now %>">0</span></td>
+            <td><%= t 'records.index.max_cost' %><%= record.comments.maximum("cost") %>$</td>
+          <%else %>
+            <td colspan="2"><%= t 'records.index.car_sell' %><%= record.comments.maximum("cost") %>$</td>
+          <% end %>
+        </tr>
+        <tr>
+          <td><%= link_to (t 'records.index.more'), record_path(record), :class => 'btn btn-outline-primary'%></td>
+        </tr>
+      </table>
+    <% end %>
+    <% end %>
+  <% end %>
 </div>

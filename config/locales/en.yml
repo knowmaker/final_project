@@ -135,3 +135,9 @@ en:
       y_mail: 'Your mail: '
       url_p: 'To enter the site, follow the link '
       happy: 'Glad you`re with us, have a nice day'
+  password_mailer:
+    reset:
+      hi: 'Hi'
+      sm_req: 'Someone requested a password reset.'
+      cl_link: 'Click the link above if you recognise the activity, link expires in 15 minutes'
+      res_p: 'Reset Password'
