@@ -19,32 +19,30 @@
     </div>
   </div>
   <% Record.all.each do |record| %>
-    <% if !record.comments.find_by(username: Current.user.email).nil?%>
-    <%=content_tag(:div, '', :class => (record.status == 'Аукцион объявлен' ? 'alert alert-primary' : 'alert alert-warning')) do%>
-      <table>
-        <tr>
-          <th colspan="2"><h3><%= record.title %></h3></th>
-        </tr>
-        <tr>
-          <td rowspan="2"><%= image_tag record.photo, size: "280x180", crop: :fill %></td>
-          <td style="word-wrap: anywhere"><%= record.description %></td>
-        </tr>
-        <tr>
-          <td><h4><%= record.status %></h4></td>
-        </tr>
-        <tr>
-          <% if record.status == 'Аукцион объявлен' %>
-            <td><%= t 'records.index.to_end' %><span class="time" id=<%= record.id %> time="<%= record.timeend-Time.now %>">0</span></td>
-            <td><%= t 'records.index.max_cost' %><%= record.comments.maximum("cost") %>$</td>
-          <%else %>
-            <td colspan="2"><%= t 'records.index.car_sell' %><%= record.comments.maximum("cost") %>$</td>
-          <% end %>
-        </tr>
-        <tr>
-          <td><%= link_to (t 'records.index.more'), record_path(record), :class => 'btn btn-outline-primary'%></td>
-        </tr>
-      </table>
-    <% end %>
+    <% unless record.comments.find_by(username: Current.user.email).nil?%>
+      <%=content_tag(:div, '', :class => (record.status == 'Аукцион объявлен' ? 'card mb-3 border-success' : 'card mb-3 border-danger'), :style => "max-width: 1500px" )do %>
+        <div class="row g-0">
+          <div class="col-md-3" style="display:inline-block; position:relative;">
+            <% if record.status == 'Аукцион объявлен'%>
+              <%= image_tag record.photo, size: "310x200", crop: :fill, style: "border-radius: 5px" %>
+              <h5 class="card-text" style="text-align: center; letter-spacing: 5px;"><%= t 'records.index.max_cost' %><%= record.comments.maximum("cost") %>$</h5>
+            <% else %>
+              <%= image_tag record.photo, size: "310x200", crop: :fill, style: 'filter: blur(3px);' %>
+              <p style="display: inline-block; position: absolute; bottom: 85px; left: 0px;  padding: -5px -5px -5px -10px;
+                color:red; letter-spacing: 5px; font-weight: bold; font-size: 26px; transform: rotate(-30deg); border: 3px solid red;"><%= record.status %></p>
+              <h5 class="card-text" style="text-align: center; letter-spacing: 5px;"><%= t 'records.index.car_sell' %><%= record.comments.maximum("cost") %>$</h5>
+            <% end %>
+          </div>
+          <div class="col-md-9">
+            <div class="card-body">
+              <h3 class="card-title"><%= record.title %></h3>
+              <p class="card-text"><%= record.description %><p>
+              <p class="card-text"><small class="text-muted"><%= t 'records.index.to_end' %><span class="time" id=<%= record.id %> time="<%= record.timeend-Time.now %>">0</span></small></p>
+              <%= link_to (t 'records.index.more'), record_path(record), :class => 'btn btn-outline-primary'%>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>

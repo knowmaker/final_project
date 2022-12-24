@@ -1,9 +1,4 @@
 <div class="container">
 <h1><%= t '.about' %></h1>
 <p><%= t '.lang' %></p>
-      <% I18n.available_locales.each do |locale| %>
-        <li>
-            <%= link_to t(locale), about_path(locale: locale), class: "btn btn-outline-dark", style: "width: 150px" %>
-        </li>
-      <% end %>
 </div>

@@ -30,8 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  en: 'English'
-  ru: 'Russian'
+  en: 'АНГ'
+  ru: 'РУ'
   activerecord:
     attributes:
       user:
@@ -114,7 +114,7 @@ en:
       new: 'Add new announcement'
       cnt: 'Total Ads: '
       to_end: 'Until end: '
-      max_cost: 'Maximum bid so far: '
+      max_cost: 'Max bid so far: '
       car_sell: 'Car sold for: '
       more: 'More'
   password_resets:

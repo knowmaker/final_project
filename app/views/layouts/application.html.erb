@@ -31,23 +31,24 @@
           </li>
         </ul>
         <div class="text-end">
-          <% if Current.user %>
-            <table style="border-collapse: separate;border-spacing: 10px 0px;">
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><%= t 'global.log_as'%><%=Current.user.email %></td>
-                <td style="text-align: center; vertical-align: middle;"><%= t 'global.balance'%><%= Current.user.balance %></td>
-                <td style="text-align: center; vertical-align: middle;"><%= button_to (t 'global.account'), edit_balance_path, method: :get, class: "btn btn-outline-light me-2" %></td>
-                <td style="text-align: center; vertical-align: middle;"><%= button_to (t 'global.logout'), logout_path, method: :delete, class: "btn btn-outline-light me-2" %></td>
-              </tr>
-            </table>
-          <% else %>
-            <table style="border-collapse: separate;border-spacing: 10px 0px;">
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><%= button_to (t 'global.sign_up'), sign_up_path, method: :get, class: "btn btn-warning" %></td>
-                <td style="text-align: center; vertical-align: middle;"><%= button_to (t 'global.login'), sign_in_path, method: :get,  class: "btn btn-outline-light me-2" %></td>
-              </tr>
-            </table>
-          <% end %>
+          <table style="border-collapse: separate;border-spacing: 10px 0px;">
+            <tr>
+              <% if Current.user %>
+                    <td style="text-align: center; vertical-align: middle;"><%= t 'global.log_as'%><%=Current.user.email %></td>
+                    <td style="text-align: center; vertical-align: middle;"><%= t 'global.balance'%><%= Current.user.balance %></td>
+                    <td style="text-align: center; vertical-align: middle;"><%= button_to (t 'global.account'), edit_balance_path, method: :get, class: "btn btn-outline-light me-2" %></td>
+                    <td style="text-align: center; vertical-align: middle;"><%= button_to (t 'global.logout'), logout_path, method: :delete, class: "btn btn-outline-light me-2" %></td>
+              <% else %>
+                    <td style="text-align: center; vertical-align: middle;"><%= button_to (t 'global.sign_up'), sign_up_path, method: :get, class: "btn btn-warning" %></td>
+                    <td style="text-align: center; vertical-align: middle;"><%= button_to (t 'global.login'), sign_in_path, method: :get,  class: "btn btn-outline-light me-2" %></td>
+              <% end %>
+              <% I18n.available_locales.each do |locale| %>
+                <% if locale != I18n.locale %>
+                  <td><%= link_to t(locale), root_path(locale: locale, controller:request.env['PATH_INFO']), class: "nav-link" %></td>
+                <% end %>
+              <% end %>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
