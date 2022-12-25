@@ -2,8 +2,8 @@
 
 # class RecordsController
 class RecordsController < ApplicationController
+  before_action :require_user_admin!, only: %i[new, edit]
   before_action :require_user_logged_in!
-  skip_before_action :require_user_admin!, only: %i[show index]
   def edit
     @record = Record.find(params[:id])
   end
