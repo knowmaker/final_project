@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_user_admin!
-    redirect_to root_path unless @is_admin
+    redirect_to root_path, alert: (t 'application.not_admin') unless @is_admin
   end
 
   def switch_locale(&action)

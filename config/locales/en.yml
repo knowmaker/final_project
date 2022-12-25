@@ -62,6 +62,7 @@ en:
     sub_cong: 'Congratulations'
   application:
     sign_in_alert: 'You must be signed in'
+    not_admin: 'YOU ARE NOT ADMIN'
   pages:
     mainpage:
       find: 'Find'
