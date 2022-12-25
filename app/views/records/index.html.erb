@@ -46,9 +46,9 @@
 <!--      <tr>-->
         <%# if record.status == 'Аукцион объявлен' %>
 <!--          <td><%#= t '.to_end' %><span class="time" id=<%#= record.id %> time="<%#= record.timeend-Time.now %>">0</span></td>-->
-<!--          <td><%#= t '.max_cost' %><%= record.comments.maximum("cost") %>$</td>-->
+<!--          <td><%#= t '.max_cost' %><%#= record.comments.maximum("cost") %>$</td>-->
           <%#else %>
-<!--          <td colspan="2"><%#= t '.car_sell' %><%= record.comments.maximum("cost") %>$</td>-->
+<!--          <td colspan="2"><%#= t '.car_sell' %><%#= record.comments.maximum("cost") %>$</td>-->
           <%# end %>
 <!--      </tr>-->
 <!--      <tr>-->
