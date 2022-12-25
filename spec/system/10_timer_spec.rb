@@ -12,6 +12,7 @@ describe 'Timer' do
   end
   it 'timer' do
     @driver.get('http://localhost:3000/en')
+    @driver.manage.window.resize_to(1920, 1080)
     @driver.find_element(:css, '.btn-outline-light').click
     @driver.find_element(:id, 'email').click
     @driver.find_element(:id, 'email').send_keys('dan@mam.ru')

@@ -13,6 +13,7 @@ describe 'Opencloserecord' do
   it 'opencloserecord' do
     # Пользователь заходит на сайт
     @driver.get('http://localhost:3000/en')
+    @driver.manage.window.resize_to(1920, 1080)
     @driver.find_element(:css, '.btn-outline-light').click
     # Авторизуется как админ
     @driver.find_element(:id, 'email').click
@@ -30,7 +31,7 @@ describe 'Opencloserecord' do
     @driver.find_element(:css, 'option:nth-child(2)').click
     @driver.find_element(:name, 'commit').click
     # Проверяет действительно ли закрыт
-    expect(@driver.find_element(:css, 'p:nth-child(4)').text).to eq('Аукцион закрыт')
+    expect(@driver.find_element(:css, '.card-text:nth-child(3)').text).to eq('Аукцион закрыт')
     @driver.find_element(:css, '.btn-warning').click
     # Изменяет статус на "Открыт"
     @driver.find_element(:id, 'record_status').click
@@ -39,6 +40,12 @@ describe 'Opencloserecord' do
     @driver.find_element(:css, 'option:nth-child(1)').click
     @driver.find_element(:name, 'commit').click
     # Проверяет действительно ли открыт
-    expect(@driver.find_element(:css, 'p:nth-child(4)').text).to eq('Аукцион объявлен')
+    expect(@driver.find_element(:css, '.card-text:nth-child(3)').text).to eq('Аукцион объявлен')
+    @driver.find_element(:css, '.btn-danger').click
+    sleep 1
+    expect(@driver.switch_to.alert.text).to eq('Are you sure?')
+    @driver.switch_to.alert.accept
+    sleep 1
+    expect(@driver.find_element(:id, 'cntrec').text).to eq('0')
   end
 end

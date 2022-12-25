@@ -13,6 +13,7 @@ describe 'Addbalance' do
   it 'addbalance' do
     # Пользователь заходит на сайт
     @driver.get('http://localhost:3000/en')
+    @driver.manage.window.resize_to(1920, 1080)
     @driver.find_element(:css, '.btn-outline-light').click
     # Входит со своими данными
     @driver.find_element(:id, 'email').click
@@ -26,9 +27,9 @@ describe 'Addbalance' do
     bal=@driver.find_element(:css, 'td:nth-child(2)').text.sub('Balance: ', '').to_i
     # Вводит сумму для пополнения
     @driver.find_element(:id, 'user_balance').click
-    @driver.find_element(:id, 'user_balance').send_keys('900')
+    @driver.find_element(:id, 'user_balance').send_keys('100')
     @driver.find_element(:name, 'commit').click
     # Проверяем, что действительно пополнилось
-    expect(@driver.find_element(:css, 'td:nth-child(2)').text).to eq("Balance: #{bal+900}")
+    expect(@driver.find_element(:css, 'td:nth-child(2)').text).to eq("Balance: #{bal+100}")
   end
 end
