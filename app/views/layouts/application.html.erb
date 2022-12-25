@@ -44,7 +44,7 @@
               <% end %>
               <% I18n.available_locales.each do |locale| %>
                 <% if locale != I18n.locale %>
-                  <td><%= link_to t(locale), root_path(locale: locale, controller:request.env['PATH_INFO']), class: "nav-link" %></td>
+                  <td><%= link_to t(locale), "/#{locale}/#{request.env['PATH_INFO'][4..-1]}", class: "nav-link" %></td>
                 <% end %>
               <% end %>
             </tr>

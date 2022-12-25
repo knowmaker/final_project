@@ -37,9 +37,13 @@
             <div class="card-body">
               <h3 class="card-title"><%= record.title %></h3>
               <p class="card-text"><%= record.description %><p>
-              <p class="card-text"><small class="text-muted"><%= t 'records.index.to_end' %><span class="time" id=<%= record.id %> time="<%= record.timeend-Time.now %>">0</span></small></p>
-              <%= link_to (t 'records.index.more'), record_path(record), :class => 'btn btn-outline-primary'%>
+              <% if record.status == 'Аукцион объявлен'%>
+                <p class="card-text"><small class="text-muted"><%= t 'records.index.to_end' %><span class="time" id=<%= record.id %> time="<%= record.timeend-Time.now %>">0</span></small></p>
+              <% else %>
+                <p class="card-text"><small class="text-muted"><%= t 'records.index.to_end' %>00:00:00</small></p>
+              <% end %>
             </div>
+            <div class="card-footer"><%= link_to (t 'records.index.more'), record_path(record), :class => 'btn btn-outline-primary', style: 'text-align:center;display:block;'%></div>
           </div>
         </div>
       <% end %>

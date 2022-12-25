@@ -115,7 +115,7 @@ en:
       cnt: 'Total Ads: '
       to_end: 'Until end: '
       max_cost: 'Max bid so far: '
-      car_sell: 'Car sold for: '
+      car_sell: 'Sold for: '
       more: 'More'
   password_resets:
     edit:
