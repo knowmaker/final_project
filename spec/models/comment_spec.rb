@@ -6,7 +6,7 @@ RSpec.describe Comment, type: :model do
   describe 'test comment' do
     let(:record) do
       file = Rails.root.join('spec', 'support', 'assets', '1660890536_1-sportishka-com-p-samaya-rzhavaya-mashina-v-mire-krasivo-fot-1.jpg')
-      record = Record.new(title: 'Машина', photo: nil, description: 'Текст', status: 'Аукцион объявлен')
+      record = Record.new(title: 'Машина', photo: nil, description: "#{'текст'*25}", status: 'Аукцион объявлен')
       record.photo.attach(io: File.open(file), filename: '1660890536_1-sportishka-com-p-samaya-rzhavaya-mashina-v-mire-krasivo-fot-1.jpg')
       record.save
       record
@@ -38,8 +38,15 @@ RSpec.describe Comment, type: :model do
         expect(com.errors.full_messages[0]).to eq 'Bet must be greater than 0'
       end
 
+      it 'returns error message, null username' do
+        com = Comment.new(record_id: record[:id], username: nil, cost: 100)
+        com.save
+
+        expect(com.errors.full_messages[0]).to eq "Username can't be blank"
+      end
+
       it 'returns error message, record_id is null' do
-        com = Comment.new(username: 'mail@mail.ru', cost: -100)
+        com = Comment.new(username: 'mail@mail.ru', cost: 100)
         com.save
 
         expect(com.errors.full_messages[0]).to eq 'Record must exist'
