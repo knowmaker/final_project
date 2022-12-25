@@ -59,6 +59,7 @@ en:
     account: 'Personal Area'
     del_sure: 'Are you sure?'
     sub_welc: 'Welcome'
+    sub_cong: 'Congratulations'
   application:
     sign_in_alert: 'You must be signed in'
   pages:
@@ -141,3 +142,10 @@ en:
       sm_req: 'Someone requested a password reset.'
       cl_link: 'Click the link above if you recognise the activity, link expires in 15 minutes'
       res_p: 'Reset Password'
+  status_mailer:
+    congratulation:
+      welcome: 'Hello, '
+      cong: 'Congratulations to you. '
+      y_bet: 'Your bet: '
+      for: ' for '
+      win: ' is win.'

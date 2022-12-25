@@ -1,24 +1,33 @@
 <div class="container">
-  <h1><%= @record.title %></h1>
-  <p ><%= image_tag @record.photo, size: "280x180", crop: :fill %></p>
-  <p><%= @record.description %></p>
-  <p><%= @record.status %></p>
-  <% if @is_admin %>
-    <hr>
-    <table>
-      <tr>
-        <td><%= button_to (t '.edit'), edit_record_path(@record),method: :get, :class => 'btn btn-warning' %></td>
-        <td><%= button_to (t '.delete'), record_path(@record), method: :delete, data: {turbo_confirm: (t 'global.del_sure')}, :class => 'btn btn-danger' %></td>
-      </tr>
-    </table>
-  <% else %>
-    <hr>
-    <h2><%= t '.all_bet' %></h2>
-    <% @record.comments.each do |comment| %>
-      <div class="alert alert-light">
-        <p><strong><%= comment.username %></strong>: <%=comment.cost %></p>
+  <div class="card mb-3 border-dark" style="max-width: 1500px; top: 5px">
+    <div class="row g-0">
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title"><%= @record.title %></h3>
+          <p class="card-text"><%= @record.description %></p>
+          <h5 class="card-text" style="bottom: 1px"><%= @record.status %></h5>
+        </div>
+        <% if @is_admin %>
+          <table style="position: absolute; bottom: 5px; left: 10px">
+            <tr>
+              <td><%= button_to (t '.edit'), edit_record_path(@record),method: :get, :class => 'btn btn-warning' %></td>
+              <td><%= button_to (t '.delete'), record_path(@record), method: :delete, data: {turbo_confirm: (t 'global.del_sure')}, :class => 'btn btn-danger' %></td>
+            </tr>
+          </table>
+        <% end %>
       </div>
-    <% end %>
+      <div class="col-md-4">
+          <%= image_tag @record.photo, size: "430x270", crop: :fill %>
+      </div>
+    </div>
+  </div>
+  <h2><%= t '.all_bet' %></h2>
+  <% @record.comments.each do |comment| %>
+    <div class="alert alert-light">
+      <p><strong><%= comment.username %></strong>: <%=comment.cost %></p>
+    </div>
+  <% end %>
+  <% unless @is_admin %>
     <% if @record.comments.where(username: Current.user.email).count < 1 && @record.status == 'Аукцион объявлен'%>
       <hr>
       <h2><%= t '.add_bet' %></h2>
