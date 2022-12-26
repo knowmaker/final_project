@@ -42,8 +42,7 @@ describe 'Opencloserecord' do
     # Проверяет действительно ли открыт
     expect(@driver.find_element(:css, '.card-text:nth-child(3)').text).to eq('Аукцион объявлен')
     @driver.find_element(:css, '.btn-danger').click
-    sleep 1
-    expect(@driver.switch_to.alert.text).to eq('Are you sure?')
+    sleep 2
     @driver.switch_to.alert.accept
     sleep 1
     expect(@driver.find_element(:id, 'cntrec').text).to eq('0')
