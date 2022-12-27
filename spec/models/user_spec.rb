@@ -5,13 +5,15 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'test user' do
     let(:second_user) do
-      second_user = User.new(name: 'alex2', email: 'mymail2@mail.ru', password: 'Qw1234', password_confirmation: 'Qw1234')
+      second_user = User.new(name: 'alex2', email: 'mymail2@mail.ru', password: 'Qw1234',
+                             password_confirmation: 'Qw1234')
       second_user.save!
     end
 
     context 'when valid data' do
       it 'returns success' do
-        user = User.new(name: 'alexander', email: 'mylovemail@yandex.ru', password: 'As4567', password_confirmation: 'As4567')
+        user = User.new(name: 'alexander', email: 'mylovemail@yandex.ru', password: 'As4567',
+                        password_confirmation: 'As4567')
 
         expect(user.save).to eq true
       end
@@ -30,7 +32,8 @@ RSpec.describe User, type: :model do
       end
 
       it 'returns error message, invalid name' do
-        user = User.new(name: "#{'a'*75}", email: 'mail.mail@mail.ru', password: '123tyu', password_confirmation: '123tyu')
+        user = User.new(name: ('a' * 75).to_s, email: 'mail.mail@mail.ru', password: '123tyu',
+                        password_confirmation: '123tyu')
         user.save
 
         expect(user.errors.full_messages[0]).to eq 'Username is too long (maximum is 50 characters)'

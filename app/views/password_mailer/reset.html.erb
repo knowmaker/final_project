@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-</head>
-<body>
 <p>
   <%= t '.hi' %><%= params[:user].name %>,<br>
   <%= t '.sm_req' %>
   <%= t '.cl_link' %>
   <%= link_to (t '.res_p'), password_reset_edit_url(token: @token) %>
 </p>
-</body>
-</html>

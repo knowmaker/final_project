@@ -1,10 +1,7 @@
-class StatusMailer < ApplicationMailer
+# frozen_string_literal: true
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.status_mailer.congratulation.subject
-  #
+# class StatusMailer
+class StatusMailer < ApplicationMailer
   def congratulation
     @maxuser = params[:record].comments.select(:username).order(cost: :desc, created_at: :asc).first.username
     @maxuser_cost = params[:record].comments.where(username: @maxuser).first.cost

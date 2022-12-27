@@ -5,9 +5,11 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
   describe 'test comment' do
     let(:record) do
-      file = Rails.root.join('spec', 'support', 'assets', '1660890536_1-sportishka-com-p-samaya-rzhavaya-mashina-v-mire-krasivo-fot-1.jpg')
-      record = Record.new(title: 'Машина', photo: nil, description: "#{'текст'*25}", status: 'Аукцион объявлен')
-      record.photo.attach(io: File.open(file), filename: '1660890536_1-sportishka-com-p-samaya-rzhavaya-mashina-v-mire-krasivo-fot-1.jpg')
+      file = Rails.root.join('spec', 'support', 'assets',
+                             '1660890536_1-sportishka-com-p-samaya-rzhavaya-mashina-v-mire-krasivo-fot-1.jpg')
+      record = Record.new(title: 'Машина', photo: nil, description: ('текст' * 25).to_s, status: 'Аукцион объявлен')
+      record.photo.attach(io: File.open(file),
+                          filename: '1660890536_1-sportishka-com-p-samaya-rzhavaya-mashina-v-mire-krasivo-fot-1.jpg')
       record.save
       record
     end

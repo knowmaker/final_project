@@ -1,7 +1,9 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe PasswordMailer, type: :mailer do
-  describe "reset" do
+  describe 'reset' do
     let(:mail) { PasswordMailer.reset }
 
     # it "renders the headers" do
@@ -14,5 +16,4 @@ RSpec.describe PasswordMailer, type: :mailer do
     #   #expect(mail.body.encoded).to match("Hi")
     # end
   end
-
 end

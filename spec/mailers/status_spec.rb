@@ -1,7 +1,9 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe StatusMailer, type: :mailer do
-  describe "congratulation" do
+  describe 'congratulation' do
     let(:mail) { StatusMailer.congratulation }
 
     # it "renders the headers" do
@@ -14,5 +16,4 @@ RSpec.describe StatusMailer, type: :mailer do
     #   expect(mail.body.encoded).to match("Hi")
     # end
   end
-
 end
